@@ -1,3 +1,7 @@
+.nonShow {
+  display: none;
+}
+
 .menu {
   bottom: 0px;
   width: 855px;
@@ -7,6 +11,7 @@
   margin: 0 auto;
   left: 0;
   right: 0;
+  z-index: 50;
 }
 
 #menubar {
@@ -26,4 +31,31 @@
 .tab a {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.phoning {
+  width: 100%;
+  height: 4000px;
+
+  background-color: black;
+  text-align: center;
+}
+
+.phoning video {
+  position: sticky;
+  top: 0px;
+  bottom: 100px;
+  width: 700px;
+
+  /* bottom: 300px; */
+  transition: 3s;
+  transition-property: opacity;
+  transform: scale(0.5);
+}
+
+.context {
+  width: 100%;
+  height: 3000px;
+
+  background-color: black;
 }

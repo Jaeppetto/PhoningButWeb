@@ -7,7 +7,7 @@ window.addEventListener("scroll", () => {
   frame = (6.967 / 3000) * scrollY;
   phoningVideo.currentTime = frame;
 
-  vidSize = (1 / 3000) * scrollY + 0.5;
+  vidSize = (1 / 4000) * scrollY + 0.5;
   phoningVideo.style.transform = `scale(${vidSize})`;
 });
 

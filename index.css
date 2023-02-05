@@ -104,3 +104,60 @@ body {
   margin-top: 200px;
   text-align: center;
 }
+
+.phone img {
+  width: 400px;
+  margin-top: 100px;
+
+  position: absolute;
+  z-index: 0;
+}
+
+.phoneHeader {
+  z-index: 10;
+  color: black;
+
+  margin-top: -20px;
+}
+
+.phoneHeader img {
+  width: 50px;
+  height: 50px;
+
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(180deg, #ffffff 0%, #94e13a 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  box-shadow: 0 0 0 1px black;
+}
+
+.phoneChat {
+  width: 380px;
+  height: 650px;
+  /* background-color: white; */
+}
+
+.chat {
+  border: 1px solid black;
+  border-radius: 0px 10px 10px 10px;
+  margin-bottom: 5px;
+
+  background: linear-gradient(white, #94e13a);
+}
+
+.chat_b {
+  border: 1px solid black;
+  border-radius: 10px 0px 10px 10px;
+  margin-bottom: 5px;
+
+  background: linear-gradient(white, #94e13a);
+}
+
+.chat1,
+.chat2 {
+  width: 100%;
+  /* background-color: aquamarine; */
+}

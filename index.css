@@ -161,3 +161,25 @@ body {
   width: 100%;
   /* background-color: aquamarine; */
 }
+
+#monitor {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+
+  padding: 150px;
+}
+
+#monitor_bg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+}

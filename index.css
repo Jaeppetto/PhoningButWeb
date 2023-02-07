@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "retro";
+  src: url("/font/DungGeunMo.otf") format("truetype");
+}
+
 body {
   background-color: black;
   overflow-x: hidden;
@@ -100,6 +105,10 @@ body {
   margin-top: 5%;
 }
 
+.forBunnies {
+  height: 2500px;
+}
+
 .forBunnies h1 {
   margin-top: 200px;
   text-align: center;
@@ -162,24 +171,132 @@ body {
   /* background-color: aquamarine; */
 }
 
+.desktop {
+  /* height: 10000px; */
+  /* position: sticky; */
+  /* top: 0px; */
+  /* display: flex; */
+}
+
 #monitor {
   width: 100vw;
   height: 100vh;
 
-  position: absolute;
+  position: sticky;
+  top: 0px;
   z-index: 2;
 }
 
-.container {
-  position: absolute;
-  z-index: 1;
+.container_1 {
+  width: 100vw;
+  height: 250vh;
 
-  padding: 150px;
+  /* background-color: #94e13a; */
+  /* position: absolute; */
+}
+#monitor_yellow {
+  width: 100vw;
+  height: 100vh;
+  position: sticky;
+  /* top: -100vh; */
+
+  top: 0px;
+  z-index: 0;
 }
 
-#monitor_bg {
+.chat_yellow {
+  width: 100vw;
+  height: 100vh;
+  padding: 100px;
+
+  position: sticky;
+  bottom: 0;
+  /* top: 0; */
+
+  /* transform: translate(0, -100vh); */
+
+  /* background-color: #94e13a; */
+}
+
+#monitor_logo {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  z-index: 0;
+}
+
+.container_2 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top: -0px;
+}
+
+#logo {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#press {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "retro";
+  z-index: 10;
+}
+
+.monitorHeader {
+  width: 100%;
+  height: 100%;
+}
+
+.monitorHeader .row {
+  margin-top: 40px;
+  width: 100%;
+
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.monitorHeader img {
+  width: 50px;
+  height: 50px;
+
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(180deg, #ffffff 0%, #94e13a 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  box-shadow: 0 0 0 1px black;
+}
+
+.monitorChat {
+  width: 100%;
+  height: 100%;
+  /* background-color: white; */
+}
+
+#chatPic {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  width: 100%;
+  height: 100%;
+}
+
+.stuff {
+  position: absolute;
+}
+
+#stuff1 {
+  left: 20%;
+  top: -30%;
+
+  transform: scale(0.7);
 }

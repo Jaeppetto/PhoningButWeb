@@ -15,97 +15,98 @@
 
     <title>schedules. Phoning but WEB</title>
 
-    <link rel="shortcut icon" href="/Favicon/favicon.ico" />
+    <link rel="shortcut icon" href="./Favicon/favicon.ico" />
     <!--추가-->
     <link
       rel="apple-touch-icon"
       sizes="57x57"
-      href="/Favicon/apple-icon-57x57.png"
+      href="./Favicon/apple-icon-57x57.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="60x60"
-      href="/Favicon/apple-icon-60x60.png"
+      href="./Favicon/apple-icon-60x60.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="72x72"
-      href="/Favicon/apple-icon-72x72.png"
+      href="./Favicon/apple-icon-72x72.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="76x76"
-      href="/Favicon/apple-icon-76x76.png"
+      href="./Favicon/apple-icon-76x76.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
-      href="/Favicon/apple-icon-114x114.png"
+      href="./Favicon/apple-icon-114x114.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="120x120"
-      href="/Favicon/apple-icon-120x120.png"
+      href="./Favicon/apple-icon-120x120.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="144x144"
-      href="/Favicon/apple-icon-144x144.png"
+      href="./Favicon/apple-icon-144x144.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="152x152"
-      href="/Favicon/apple-icon-152x152.png"
+      href="./Favicon/apple-icon-152x152.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/Favicon/apple-icon-180x180.png"
+      href="./Favicon/apple-icon-180x180.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="/Favicon/android-icon-192x192.png"
+      href="./Favicon/android-icon-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/Favicon/favicon-32x32.png"
+      href="./Favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="96x96"
-      href="/Favicon/favicon-96x96.png"
+      href="./Favicon/favicon-96x96.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/Favicon/favicon-16x16.png"
+      href="./Favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/Favicon/manifest.json" />
+    <link rel="manifest" href="./Favicon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="msapplication-TileImage"
-      content="/Favicon/ms-icon-144x144.png"
+      content="./Favicon/ms-icon-144x144.png"
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./css/chatting.css" />
   </head>
-  <body style="height: 9000px">
+  <body>
     <div class="menu">
-      <img id="menubar" src="/src/menubar.png" alt="" />
+      <img id="menubar" src="./src/menubar.png" alt="" />
       <div class="tab">
-        <a href="index.html"><img src="/src/home.png" alt="" /></a>
-        <a href="schedules.html"><img src="/src/chat.png" alt="" /></a>
-        <a href="discography.html"><img src="/src/disco.png" alt="" /></a>
-        <a href="shop.html"><img src="/src/shop.png" alt="" /></a>
+        <a href="./index.html"><img src="./src/home.png" alt="" /></a>
+        <a href="./chatting.html"><img src="./src/chat.png" alt="" /></a>
+        <a href="./discography.html"><img src="./src/disco.png" alt="" /></a>
+        <a href="./shop.html"><img src="./src/shop.png" alt="" /></a>
       </div>
     </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -117,5 +118,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <div class="row mainContainer p-0 m-0">
+      <div class="col-3 sideBar row p-0 m-0">
+        <div class="col-12 bg-danger" style="height: 75%"></div>
+        <div class="col-12 bg-light" style="height: 25%"></div>
+      </div>
+      <div class="col-9 chatWindow row p-0 m-0">
+        <div class="col-12 bg-dark" style="height: 15%"></div>
+        <div class="col-12 bg-success" style="height: 75%"></div>
+        <div class="col-12 bg-info" style="height: 10%"></div>
+      </div>
+    </div>
   </body>
 </html>

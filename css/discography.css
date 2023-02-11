@@ -34,14 +34,17 @@ body {
   align-items: center;
 }
 
+.playBox .row {
+  width: 100%;
+  height: 100%;
+}
+
 .playBox {
   width: 60%;
   height: 40%;
-  /* background-color: rgba(255, 255, 255, 0.787); */
 
   margin-bottom: 100px;
 
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.31);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -49,7 +52,85 @@ body {
   -webkit-backdrop-filter: blur(12.7px);
   border: 1px solid rgba(255, 255, 255, 0.85);
 
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.albumTitle {
+  width: 200px;
+  height: 200px;
+
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.front:hover {
+  transform: scale(1.1);
+  transition: transform 1s;
+}
+@keyframes bounce {
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.front,
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #2d2d2ddb;
+  border-radius: 16px;
+
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  box-shadow: 0px 10px 20px -7px #040031bb;
+}
+
+.albumDetail {
+  color: white;
+  width: 100%;
+
+  overflow: auto;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+#Album_1 {
+  width: 100%;
+  box-shadow: 0px 10px 20px -7px #10095fbb;
+
+  border-radius: 16px;
+
+  /* backface-visibility: hidden; */
+}
+
+#Album_2 {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 10px 20px -7px #242424bb;
+
+  border-radius: 16px;
+}
+
+#Album_3 {
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.7px);
+  -webkit-backdrop-filter: blur(12.7px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
 }
 
 .menu {

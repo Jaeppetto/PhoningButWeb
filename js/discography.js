@@ -57,3 +57,25 @@ playlist.addEventListener("click", (e) => {
     console.log("jo");
   }
 });
+
+const flip_a = document.querySelector("#a");
+const flip_b = document.querySelector("#b");
+const icon = document.querySelectorAll(".icon");
+const icons = Array.from(icon);
+
+flip_a.addEventListener("click", flip);
+flip_b.addEventListener("click", flip);
+
+function flip(e) {
+  var isIcon = [];
+  icons.forEach((item) => {
+    return isIcon.push(e.target == item);
+  });
+
+  if (e.currentTarget.style.transform == "rotateY(180deg)") {
+    if (isIcon.includes(true) != true)
+      e.currentTarget.style.transform = "rotateY(0deg)";
+  } else {
+    e.currentTarget.style.transform = "rotateY(180deg)";
+  }
+}

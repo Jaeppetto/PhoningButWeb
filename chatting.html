@@ -97,7 +97,7 @@
     <link rel="stylesheet" href="./css/chatting.css" />
   </head>
   <body>
-    <div class="menu">
+    <!-- <div class="menu">
       <img id="menubar" src="./src/menubar.png" alt="" />
       <div class="tab">
         <a href="./index.html"><img src="./src/home.png" alt="" /></a>
@@ -105,7 +105,7 @@
         <a href="./discography.html"><img src="./src/disco.png" alt="" /></a>
         <a href="./shop.html"><img src="./src/shop.png" alt="" /></a>
       </div>
-    </div>
+    </div> -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -120,15 +120,45 @@
     ></script>
 
     <div class="row mainContainer p-0 m-0">
-      <div class="col-3 sideBar row p-0 m-0">
-        <div class="col-12 bg-danger" style="height: 75%"></div>
+      <div class="col-3 sideBar row p-0 m-0 h-100">
+        <div
+          class="col-12 bg-danger row"
+          style="height: 75%; overflow-y: scroll"
+        >
+          <div class="col-12" style="height: 10%">
+            <a href="./index.html"><h3>home</h3></a>
+          </div>
+          <img src="img/id4.png" id="idcard" alt="" />
+          <img src="img/id5.png" id="idcard" alt="" />
+          <img src="img/id2.png" id="idcard" alt="" />
+          <img src="img/id1.png" id="idcard" alt="" />
+          <img src="img/id3.png" id="idcard" alt="" />
+        </div>
         <div class="col-12 bg-light" style="height: 25%"></div>
       </div>
-      <div class="col-9 chatWindow row p-0 m-0">
-        <div class="col-12 bg-dark" style="height: 15%"></div>
-        <div class="col-12 bg-success" style="height: 75%"></div>
-        <div class="col-12 bg-info" style="height: 10%"></div>
+      <div class="col-9 chatWindow row p-0 m-0 h-100">
+        <div
+          class="col-12 bg-dark d-flex justify-content-center align-items-center"
+          style="height: 15%"
+        >
+          <h1 class="text-white" id="chatTitle">
+            ID Card를 끌어와 채팅을 시작해보세요!
+          </h1>
+        </div>
+        <div id="chatRoom" class="col-12 bg-success" style="height: 75%"></div>
+        <div class="col-12 bg-info row" style="height: 10%">
+          <div class="col-10">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="메시지를 입력하세요"
+            />
+          </div>
+          <div class="col-2"><button id="chatSubmit">전송</button></div>
+        </div>
       </div>
     </div>
+
+    <script src="./js/chatting.js"></script>
   </body>
 </html>

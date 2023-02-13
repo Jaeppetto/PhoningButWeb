@@ -3,35 +3,28 @@
   src: url("/font/DungGeunMo.otf") format("truetype");
 }
 
-.menu {
-  bottom: 0px;
-  width: 855px;
-
-  position: fixed;
-
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  z-index: 50;
-}
-
-#menubar {
-  object-fit: none;
-  position: absolute;
-  z-index: 0;
-
-  bottom: 20px;
-}
-
-.tab {
-  position: absolute;
-  bottom: 50px;
-  right: 70px;
-}
-
-.tab a {
-  margin-left: 15px;
-  margin-right: 15px;
+div,
+.row,
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0px;
+  margin: 0px;
 }
 
 body {
@@ -41,4 +34,25 @@ body {
 .mainContainer {
   width: 100vw;
   height: 100vh;
+}
+
+#idcard {
+  width: 100%;
+  height: 30%;
+  margin-bottom: 10px;
+}
+#chatInput {
+  width: 100%;
+  height: 100%;
+}
+
+#chatSubmit {
+  width: 100%;
+  height: 100%;
+}
+
+#chatRoom {
+  box-sizing: border-box;
+
+  transition: all 1s;
 }

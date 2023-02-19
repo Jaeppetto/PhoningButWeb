@@ -32,13 +32,87 @@ var chatting = {
   ],
 };
 
+// Init
 const chatRoom = document.getElementById("chatRoom");
 const idCards = document.querySelectorAll("#idcard");
-var chatID = "none";
-var profileImg = "";
 const chatBG = document.getElementById("chatBg");
-// document.querySelector("#profileImg").src = "profileImg";
+const chatCover = document.getElementById("chatCover");
 
+var chatID = "none";
+var listNum = 0;
+var profileImg = "";
+
+// Functions
+function initChat(object) {
+  var newObj = JSON.stringify(object);
+  localStorage.setItem("chat", newObj);
+}
+
+function loadChat() {
+  // 1. 로컷스토리지에서 JSON 가져온 후 오브젝트로 파싱
+  // 2. chatting 파라미터로 접근하여 리턴
+  var temp = JSON.parse(localStorage.getItem("chat"));
+
+  return temp;
+}
+
+function saveChat(listNum, input) {
+  // 1. 로컬스토리지에서 JSON() 가져옴
+  // 2. 오브젝트로 파싱 후 chatting 파라미터로 접근
+  // 3. 압력받은 input 변수 chatting 파라미터에 append
+  // 4. 기존 오브젝트 삭제 후 새로운 입력 갱신 된 오브젝트 JSON화
+  // 5. 로컬스토리지에 저장
+  var chatObj = loadChat();
+  chatObj.members[listNum].chatting.push(input);
+  console.log(input);
+
+  localStorage.removeItem("chat");
+
+  var newChatlist = JSON.stringify(chatObj);
+  localStorage.setItem("chat", newChatlist);
+}
+
+function printChat(listNum) {
+  // 1. 로컬스토리지에서 JSON() 가져옴
+  // 2. 오브젝트로 파싱 후 해당 유저의 chatting 파라미터로 접근
+  // 3. 가져와 forEach 메서드 통해 채팅 갯수만큼 화면에 출력
+  // 4.
+  chatDiv.innerHTML = "";
+  var chatObj = loadChat();
+  chatList = chatObj.members[listNum].chatting;
+
+  chatList.forEach((item) => {
+    item = String(item);
+    var template = `<div
+    id="myChatting"
+    class="col-12 mt-2 d-flex justify-content-end"
+    style="height: 1.7rem%"
+  >
+    <div class="myChat">${item}</div>
+  </div>`;
+
+    chatDiv.insertAdjacentHTML("beforeend", template);
+  });
+}
+
+function clearChat(listNum) {
+  var chatObj = loadChat();
+  chatDiv.innerHTML = "";
+
+  // chatObj.members.forEach((item) => {
+  //   item.chatting = [];
+  // });
+
+  chatObj.members[listNum].chatting = [];
+  localStorage.removeItem("chat");
+
+  var newChatlist = JSON.stringify(chatObj);
+  localStorage.setItem("chat", newChatlist);
+
+  printChat(listNum);
+}
+
+// Events
 idCards.forEach((item) => {
   item.addEventListener("dragstart", (e) => {
     // e.preventDefault();
@@ -46,17 +120,20 @@ idCards.forEach((item) => {
   });
 });
 
-chatRoom.addEventListener("dragover", (e) => {
+chatCover.addEventListener("dragover", (e) => {
   e.preventDefault();
-  chatRoom.style.border = "15px solid rgba(0, 145, 255, 0.478)";
 });
 
-chatRoom.addEventListener("drop", (e) => {
+chatCover.addEventListener("drop", (e) => {
   // e.preventDefault();
-  chatRoom.style.border = "none";
+  chatCover.style.border = "none";
+  chatCover.style.opacity = "0";
+  chatCover.style.display = "none";
 
   switch (chatID) {
     case idCards[0]:
+      listNum = 0;
+      printChat(listNum);
       //민지
       // 채팅방 한 번 초기화하고
       // 오브젝트 내 채팅 객체 데이터바인딩
@@ -73,6 +150,9 @@ chatRoom.addEventListener("drop", (e) => {
       break;
 
     case idCards[1]:
+      listNum = 1;
+      printChat(listNum);
+
       document.getElementById(
         "chatTitle"
       ).innerHTML = `${chatting.members[1].name}'s Room`;
@@ -88,6 +168,9 @@ chatRoom.addEventListener("drop", (e) => {
       break;
 
     case idCards[2]:
+      listNum = 2;
+      printChat(listNum);
+
       document.getElementById(
         "chatTitle"
       ).innerHTML = `${chatting.members[2].name}'s Room`;
@@ -103,6 +186,9 @@ chatRoom.addEventListener("drop", (e) => {
       break;
 
     case idCards[3]:
+      listNum = 3;
+      printChat(listNum);
+
       document.getElementById(
         "chatTitle"
       ).innerHTML = `${chatting.members[3].name}'s Room`;
@@ -118,6 +204,111 @@ chatRoom.addEventListener("drop", (e) => {
       break;
 
     case idCards[4]:
+      listNum = 4;
+      printChat(listNum);
+
+      document.getElementById(
+        "chatTitle"
+      ).innerHTML = `${chatting.members[4].name}'s Room`;
+      profileImg = "./img/haerin.jpeg";
+      document.getElementById("profileImg").src = profileImg;
+
+      document.getElementById("chatName").innerHTML = chatting.members[4].name;
+      chatting.members[4].chatting = [];
+      document.getElementsByClassName("yourChat")[0].innerHTML =
+        chatting.members[4].text;
+
+      //해린
+      break;
+  }
+});
+
+chatRoom.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  chatRoom.style.border = "15px solid rgba(0, 145, 255, 0.478)";
+});
+
+chatRoom.addEventListener("drop", (e) => {
+  // e.preventDefault();
+  chatRoom.style.border = "none";
+
+  switch (chatID) {
+    case idCards[0]:
+      listNum = 0;
+      printChat(listNum);
+      //민지
+      // 채팅방 한 번 초기화하고
+      // 오브젝트 내 채팅 객체 데이터바인딩
+      document.getElementById(
+        "chatTitle"
+      ).innerHTML = `${chatting.members[0].name}'s Room`;
+      profileImg = "./img/minji.jpeg";
+      document.getElementById("profileImg").src = profileImg;
+
+      document.getElementById("chatName").innerHTML = chatting.members[0].name;
+      chatting.members[0].chatting = [];
+      document.getElementsByClassName("yourChat")[0].innerHTML =
+        chatting.members[0].text;
+      break;
+
+    case idCards[1]:
+      listNum = 1;
+      printChat(listNum);
+
+      document.getElementById(
+        "chatTitle"
+      ).innerHTML = `${chatting.members[1].name}'s Room`;
+      profileImg = "./img/daniel.jpeg";
+      document.getElementById("profileImg").src = profileImg;
+
+      document.getElementById("chatName").innerHTML = chatting.members[1].name;
+      chatting.members[1].chatting = [];
+      document.getElementsByClassName("yourChat")[0].innerHTML =
+        chatting.members[1].text;
+
+      //다니엘
+      break;
+
+    case idCards[2]:
+      listNum = 2;
+      printChat(listNum);
+
+      document.getElementById(
+        "chatTitle"
+      ).innerHTML = `${chatting.members[2].name}'s Room`;
+      profileImg = "./img/hani.jpeg";
+      document.getElementById("profileImg").src = profileImg;
+
+      document.getElementById("chatName").innerHTML = chatting.members[2].name;
+      chatting.members[2].chatting = [];
+      document.getElementsByClassName("yourChat")[0].innerHTML =
+        chatting.members[2].text;
+
+      //하니
+      break;
+
+    case idCards[3]:
+      listNum = 3;
+      printChat(listNum);
+
+      document.getElementById(
+        "chatTitle"
+      ).innerHTML = `${chatting.members[3].name}'s Room`;
+      profileImg = "./img/hyein.jpeg";
+      document.getElementById("profileImg").src = profileImg;
+
+      document.getElementById("chatName").innerHTML = chatting.members[3].name;
+      chatting.members[3].chatting = [];
+      document.getElementsByClassName("yourChat")[0].innerHTML =
+        chatting.members[3].text;
+
+      //혜인
+      break;
+
+    case idCards[4]:
+      listNum = 4;
+      printChat(listNum);
+
       document.getElementById(
         "chatTitle"
       ).innerHTML = `${chatting.members[4].name}'s Room`;
@@ -137,6 +328,7 @@ chatRoom.addEventListener("drop", (e) => {
 const chatForm = document.querySelector(".form");
 const formText = document.querySelector("#chatInput");
 const chatDiv = document.getElementsByClassName("chat")[0];
+const btnClean = document.getElementById("btnClean");
 
 chatRoom.addEventListener("dragleave", (e) => {
   chatRoom.style.border = "none";
@@ -145,17 +337,8 @@ chatRoom.addEventListener("dragleave", (e) => {
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (formText.value.length != 0) {
-    chatting.members[5].chatting.push(chatForm.value);
-    // var appendText = doucment.createElement()
-    var 템플릿 = `<div
-    id="myChatting"
-    class="col-12 mt-2 d-flex justify-content-end"
-    style="height: 1.7rem%"
-  >
-    <div class="myChat">${formText.value}</div>
-  </div>`;
-    chatDiv.insertAdjacentHTML("beforeend", 템플릿);
-
+    saveChat(listNum, formText.value);
+    printChat(listNum);
     formText.value = "";
   }
 });
@@ -176,13 +359,10 @@ document.getElementById("chatSubmit").addEventListener("click", function () {
     formText.value = "";
   }
 });
-//Drag eventlistner
-// 그럼 기존에 있던 화면을 날리고, ID Card 주인의 채팅창을 표시함 & 변수로 표시 (isMinji..)
-//만약 통신이 되면, 내가 보내는 메시지는 우측 정렬 상대가 보애는 메시지는 좌측정렬하면 됨
-//메시지를 입력하고 전송버튼을 눌렀을 떄, siwtch 변수로 해당 오브젝트에 메시지 넣고 js로 데이터바인딩하면 됨.
 
-//session storage로 현재 로그인 여부 확인하면 될 듯
+btnClean.addEventListener("click", (e) => {
+  e.preventDefault();
+  clearChat(listNum);
+});
 
-// 얘 드래그 시작하면 변수 변함
-// 박스 위로 놓았을 때, 변수 따라서 그 변수에 맞는 오브젝트 리스트 불러와
-//그래서 채팅창 이름이나 채팅 목록 바꿔주면 될 듯 .
+var chat = JSON.parse(localStorage.getItem("chat"));

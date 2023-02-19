@@ -160,15 +160,24 @@
 
       <div class="col-9 chatWindow row p-0 m-0 h-100 overflow-hidden">
         <div
-          class="chatTitle col-12 d-flex justify-content-center align-items-center"
+          class="chatTitle col-12 d-flex justify-content-center align-items-center row"
           style="height: 15%; z-index: 10"
         >
-          <h1 class="text-black" id="chatTitle" style="font-size: 150%">
-            ID Card를 끌어와 채팅을 시작해보세요!
-          </h1>
+          <div class="col-2"></div>
+          <div class="col-8 d-flex justify-content-center">
+            <h1 class="text-black" id="chatTitle" style="font-size: 150%">
+              ID Card를 끌어와 채팅을 시작해보세요!
+            </h1>
+          </div>
+          <div class="col-2">
+            <button id="btnClean">🧹채팅청소</button>
+          </div>
         </div>
 
         <!-- --------------chat area-------------- -->
+        <div id="chatCover" class="col-12 position-fixed w-100 h-100">
+          <img src="./src/bg1.png" alt="" />
+        </div>
         <div
           id="chatRoom"
           class="col-12 row d-flex px-4 align-content-start overflow-auto"

@@ -160,6 +160,17 @@
 
       <div class="col-9 chatWindow row p-0 m-0 h-100 overflow-hidden">
         <div
+          id="chatCover"
+          class="col-12 h-100 d-flex justify-content-center align-items-center"
+        >
+          <h4 id="chatText" class="position-fixed" style="z-index: 12">
+            ID Card를 끌어와 채팅을 시작하세요 !
+          </h4>
+
+          <img class="position-fixed" src="./src/bg1.png" alt="" />
+        </div>
+
+        <div
           class="chatTitle col-12 d-flex justify-content-center align-items-center row"
           style="height: 15%; z-index: 10"
         >
@@ -175,9 +186,7 @@
         </div>
 
         <!-- --------------chat area-------------- -->
-        <div id="chatCover" class="col-12 position-fixed w-100 h-100">
-          <img src="./src/bg1.png" alt="" />
-        </div>
+
         <div
           id="chatRoom"
           class="col-12 row d-flex px-4 align-content-start overflow-auto"

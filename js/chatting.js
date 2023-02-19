@@ -38,6 +38,11 @@ const idCards = document.querySelectorAll("#idcard");
 const chatBG = document.getElementById("chatBg");
 const chatCover = document.getElementById("chatCover");
 
+const chatForm = document.querySelector(".form");
+const formText = document.querySelector("#chatInput");
+const chatDiv = document.getElementsByClassName("chat")[0];
+const btnClean = document.getElementById("btnClean");
+
 var chatID = "none";
 var listNum = 0;
 var profileImg = "";
@@ -121,14 +126,16 @@ idCards.forEach((item) => {
 });
 
 chatCover.addEventListener("dragover", (e) => {
+  console.log(e);
   e.preventDefault();
+  chatCover.style.border = "15px solid rgba(0, 145, 255, 0.478)";
+
+  document.getElementById("chatText").style.transform = "scale(1.3)";
 });
 
 chatCover.addEventListener("drop", (e) => {
-  // e.preventDefault();
   chatCover.style.border = "none";
-  chatCover.style.opacity = "0";
-  chatCover.style.display = "none";
+  chatCover.classList.add("d-none");
 
   switch (chatID) {
     case idCards[0]:
@@ -221,6 +228,10 @@ chatCover.addEventListener("drop", (e) => {
       //해린
       break;
   }
+});
+
+chatCover.addEventListener("dragleave", (e) => {
+  document.getElementById("chatText").style.transform = "scale(1)";
 });
 
 chatRoom.addEventListener("dragover", (e) => {
@@ -229,16 +240,14 @@ chatRoom.addEventListener("dragover", (e) => {
 });
 
 chatRoom.addEventListener("drop", (e) => {
-  // e.preventDefault();
   chatRoom.style.border = "none";
 
   switch (chatID) {
     case idCards[0]:
+      // Minji
       listNum = 0;
       printChat(listNum);
-      //민지
-      // 채팅방 한 번 초기화하고
-      // 오브젝트 내 채팅 객체 데이터바인딩
+
       document.getElementById(
         "chatTitle"
       ).innerHTML = `${chatting.members[0].name}'s Room`;
@@ -252,6 +261,7 @@ chatRoom.addEventListener("drop", (e) => {
       break;
 
     case idCards[1]:
+      // Daniel
       listNum = 1;
       printChat(listNum);
 
@@ -265,11 +275,10 @@ chatRoom.addEventListener("drop", (e) => {
       chatting.members[1].chatting = [];
       document.getElementsByClassName("yourChat")[0].innerHTML =
         chatting.members[1].text;
-
-      //다니엘
       break;
 
     case idCards[2]:
+      // Hani
       listNum = 2;
       printChat(listNum);
 
@@ -283,11 +292,10 @@ chatRoom.addEventListener("drop", (e) => {
       chatting.members[2].chatting = [];
       document.getElementsByClassName("yourChat")[0].innerHTML =
         chatting.members[2].text;
-
-      //하니
       break;
 
     case idCards[3]:
+      // Hyein
       listNum = 3;
       printChat(listNum);
 
@@ -301,11 +309,10 @@ chatRoom.addEventListener("drop", (e) => {
       chatting.members[3].chatting = [];
       document.getElementsByClassName("yourChat")[0].innerHTML =
         chatting.members[3].text;
-
-      //혜인
       break;
 
     case idCards[4]:
+      // Haerin
       listNum = 4;
       printChat(listNum);
 
@@ -319,16 +326,9 @@ chatRoom.addEventListener("drop", (e) => {
       chatting.members[4].chatting = [];
       document.getElementsByClassName("yourChat")[0].innerHTML =
         chatting.members[4].text;
-
-      //해린
       break;
   }
 });
-
-const chatForm = document.querySelector(".form");
-const formText = document.querySelector("#chatInput");
-const chatDiv = document.getElementsByClassName("chat")[0];
-const btnClean = document.getElementById("btnClean");
 
 chatRoom.addEventListener("dragleave", (e) => {
   chatRoom.style.border = "none";
@@ -343,19 +343,11 @@ chatForm.addEventListener("submit", (e) => {
   }
 });
 
-document.getElementById("chatSubmit").addEventListener("click", function () {
+document.getElementById("chatSubmit").addEventListener("click", function (e) {
+  e.preventDefault();
   if (formText.value.length != 0) {
-    chatting.members[5].chatting.push(chatForm.value);
-    // var appendText = doucment.createElement()
-    var 템플릿 = `<div
-    id="myChatting"
-    class="col-12 mt-2 d-flex justify-content-end"
-    style="height: 1.7rem%"
-  >
-    <div class="myChat">${formText.value}</div>
-  </div>`;
-    chatDiv.insertAdjacentHTML("beforeend", 템플릿);
-
+    saveChat(listNum, formText.value);
+    printChat(listNum);
     formText.value = "";
   }
 });

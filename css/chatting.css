@@ -139,8 +139,7 @@ textarea:focus {
 
 #chatCover {
   transition: all 1s;
-  z-index: 10;
-  box-shadow: inset;
+  z-index: 12;
 }
 
 #chatCover img {
@@ -149,4 +148,8 @@ textarea:focus {
 
   /* box-sizing: border-box;
    */
+}
+
+#chatText {
+  transition: all 1s;
 }

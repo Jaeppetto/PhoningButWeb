@@ -22,6 +22,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("scroll", () => {
+  console.log(window.pageYOffset);
   //Video Length : 6.967
   frame = (6.967 / 3000) * scrollY;
   phoningVideo.currentTime = frame;
@@ -84,6 +85,7 @@ window.addEventListener("scroll", () => {
 });
 
 const functions = document.querySelectorAll(".function");
+
 functions.forEach((item) => {
   var tmp = item.innerHTML;
 
@@ -101,3 +103,44 @@ functions.forEach((item) => {
 functions[2].addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+
+const options = {
+  root: null, // viewport
+  rootMargin: "0px",
+  threshold: 0.5, // 50%가 viewport에 들어와 있어야 callback 실행
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry.isIntersecting);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    } else {
+      entry.target.classList.remove("active");
+    }
+  });
+}, options);
+
+const titleList1 = document.querySelectorAll("#typing1");
+const titleList2 = document.querySelectorAll(".chat");
+const titleList3 = document.querySelectorAll(".chat_b");
+
+titleList1.forEach((el) => {
+  setTimeout(() => {
+    observer.observe(el);
+  });
+}, 500);
+titleList2.forEach((el) => {
+  setTimeout(() => {
+    observer.observe(el);
+  });
+}, 500);
+titleList3.forEach((el) => {
+  setTimeout(() => {
+    observer.observe(el);
+  });
+}, 500);
+// titleList2.forEach((el) => observer.observe(el));
+// titleList3.forEach((el) => observer.observe(el));
+
+// https://gurtn.tistory.com/129

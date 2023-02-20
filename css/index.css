@@ -6,6 +6,7 @@
 body {
   background-color: black;
   overflow-x: hidden;
+  font-family: "Noto Sans KR";
 }
 
 .menu {
@@ -176,6 +177,8 @@ body {
   /* position: sticky; */
   /* top: 0px; */
   /* display: flex; */
+  /* width: 100vw;
+  height: 100vh; */
 }
 
 #monitor {
@@ -311,4 +314,28 @@ body {
   top: -30%;
 
   transform: scale(0.7);
+}
+
+#typing1 {
+  transform: translateY(70%);
+  opacity: 0;
+  transition: 0.8s;
+}
+
+#typing1.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.chat,
+.chat_b {
+  transform: translateY(70%);
+  opacity: 0;
+  transition: 2s;
+}
+
+.chat.active,
+.chat_b.active {
+  transform: translateX(0);
+  opacity: 1;
 }

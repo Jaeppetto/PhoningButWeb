@@ -33,6 +33,7 @@ h6 {
 body {
   background-color: rgb(172, 172, 172);
   overflow-x: none;
+  font-family: "Noto Sans KR";
 }
 
 input:focus,

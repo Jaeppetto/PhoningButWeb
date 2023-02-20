@@ -4,7 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Icon CDS -->
     <link
       rel="stylesheet"
@@ -135,7 +140,7 @@
           style="height: 75%; overflow-y: scroll"
         >
           <div class="col-12 mt-2" style="height: 50px">
-            <a href="./index.html">
+            <a draggable="false" href="./index.html">
               <span class="ms-3">🏠HOME</span>
             </a>
           </div>
@@ -164,10 +169,16 @@
           class="col-12 h-100 d-flex justify-content-center align-items-center"
         >
           <h4 id="chatText" class="position-fixed" style="z-index: 12">
-            ID Card를 끌어와 채팅을 시작하세요 !
+            <span style="font-weight: 600">ID Card</span>를 끌어와 채팅을
+            시작하세요 !
           </h4>
 
-          <img class="position-fixed" src="./src/bg1.png" alt="" />
+          <img
+            draggable="false"
+            class="position-fixed"
+            src="./src/bg1.png"
+            alt=""
+          />
         </div>
 
         <div
@@ -177,7 +188,7 @@
           <div class="col-2"></div>
           <div class="col-8 d-flex justify-content-center">
             <h1 class="text-black" id="chatTitle" style="font-size: 150%">
-              ID Card를 끌어와 채팅을 시작해보세요!
+              <span>ID Card</span>를 끌어와 채팅을 시작해보세요!
             </h1>
           </div>
           <div class="col-2">

@@ -321,7 +321,89 @@
       <div class="container_2">
         <img id="monitor_logo" src="./src/bg_2.png" alt="" />
         <img id="logo" src="./src/logo.png" alt="" />
-        <div id="press" class="text-center">
+
+        <div
+          id="signIn"
+          class="row d-flex justify-content-center align-content-start d-none"
+        >
+          <div class="col-2 text-center mb-3">back</div>
+          <div class="col-8 text-center mb-3">Sign in</div>
+          <div class="col-2 text-center mb-3"></div>
+          <!--  -->
+          <div class="col-12 text-center row mb-2">
+            <div class="col-2">ID</div>
+            <div class="col-10">
+              <input type="email" />
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-12 text-center row mb-3">
+            <div class="col-2">PW</div>
+            <div class="col-10">
+              <input type="password" />
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <button id="btnSignin" class="signBtn">Sign in</button>
+          </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div
+          id="signUp"
+          class="row d-flex justify-content-center align-content-start d-none"
+        >
+          <div class="col-12 mb-4">
+            <button style="cursor: pointer" class="back">back</button>
+          </div>
+
+          <!--  -->
+          <div class="col-12 text-center row mb-1">
+            <div
+              id="EF1"
+              class="col-3 fs-4 fw-bold d-flex justify-content-center"
+            >
+              Nickname
+            </div>
+            <div class="col-9">
+              <input type="text" class="w-100 h-100" id="signupNickname" />
+            </div>
+          </div>
+          <div class="col-12 text-center mb-3 check"></div>
+          <!--  -->
+          <div class="col-12 text-center row mb-1">
+            <div
+              id="EF2"
+              class="col-3 fs-4 fw-bold d-flex justify-content-center"
+            >
+              ID
+            </div>
+            <div class="col-9">
+              <input type="email" class="w-100 h-100" id="signupEmail" />
+            </div>
+          </div>
+          <div class="col-12 text-center mb-3 check"></div>
+
+          <!--  -->
+          <div class="col-12 text-center row mb-3">
+            <div
+              id="EF3"
+              class="col-3 fs-4 fw-bold d-flex justify-content-center"
+            >
+              PW
+            </div>
+            <div class="col-9">
+              <input type="password" class="w-100 h-100" id="signupPw" />
+            </div>
+          </div>
+          <div class="col-12 text-center mb-3 check"></div>
+          <!--  -->
+          <div class="col-12 text-center">
+            <button id="btnSignup" class="signBtn">Sign up</button>
+          </div>
+        </div>
+
+        <div id="press" class="text-center d-block">
           <h3 style="cursor: pointer" class="function signin">로그인</h3>
           <h3 style="cursor: pointer" class="function signup">회원가입</h3>
           <h3 style="cursor: pointer" class="function home">처음으로</h3>

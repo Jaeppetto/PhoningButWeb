@@ -15,6 +15,10 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > phoneHeight && offsetY > 0) {
     var y = (90 / 1500) * window.scrollY - (90 / 1500) * phoneHeight;
     var y2 = (1 / 1500) * window.scrollY + (1 - phoneHeight / 1500);
+
+    if (y2 > 1.5) {
+      y2 = 1.5;
+    }
     element.style.transform = `rotate(${y}deg) scale(${y2})`;
   } else {
     element.style.transform = `rotate(0deg)`;
@@ -22,7 +26,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("scroll", () => {
-  console.log(window.pageYOffset);
+  // console.log(window.pageYOffset);
   //Video Length : 6.967
   frame = (6.967 / 3000) * scrollY;
   phoningVideo.currentTime = frame;
@@ -61,7 +65,7 @@ window.addEventListener("scroll", () => {
   }
   lastScrollPosition = newScrollPosition;
 
-  console.log(window.scrollY);
+  // console.log(window.scrollY);
 
   if (
     window.scrollY > absoluteTop + 100 &&
@@ -100,6 +104,16 @@ functions.forEach((item) => {
   });
 });
 
+functions[0].addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});
+functions[1].addEventListener("click", () => {
+  document.querySelector("#signUp").classList.remove("d-none");
+  document.querySelector("#signUp").classList.add("d-block");
+
+  document.querySelector("#press").classList.remove("d-block");
+  document.querySelector("#press").classList.add("d-none");
+});
 functions[2].addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
@@ -112,7 +126,7 @@ const options = {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    console.log(entry.isIntersecting);
+    // console.log(entry.isIntersecting);
     if (entry.isIntersecting) {
       entry.target.classList.add("active");
     } else {
@@ -140,7 +154,175 @@ titleList3.forEach((el) => {
     observer.observe(el);
   });
 }, 500);
-// titleList2.forEach((el) => observer.observe(el));
-// titleList3.forEach((el) => observer.observe(el));
 
 // https://gurtn.tistory.com/129
+
+var userInfo = {
+  user: [
+    {
+      nickname: "",
+      email: "",
+      pw: "",
+    },
+  ],
+};
+
+const signupNickname = document.getElementById("signupNickname");
+const signupEmail = document.getElementById("signupEmail");
+const signupPw = document.getElementById("signupPw");
+const signupBtn = document.getElementById("btnSignup");
+
+const checkNickname = document.querySelectorAll(".check")[0];
+const checkEmail = document.querySelectorAll(".check")[1];
+const checkPw = document.querySelectorAll(".check")[2];
+
+let isNickname = false;
+let isEmail = false;
+let isPw = false;
+
+function initUser(object) {
+  var tmpObj = JSON.stringify(object);
+  localStorage.setItem("user", tmpObj);
+}
+
+function loadUser() {
+  var temp = JSON.parse(localStorage.getItem("user"));
+
+  return temp;
+}
+
+function addUser(nickname, email, pw) {
+  var userList = loadUser();
+  var tmpObj = {
+    nickname: "",
+    email: "",
+    pw: "",
+  };
+
+  tmpObj.nickname = nickname;
+  tmpObj.email = email;
+  tmpObj.pw = pw;
+
+  userList.user.push(tmpObj);
+
+  // 유저 객체 갱신 위해 기존 객체 제거
+  localStorage.removeItem("user");
+
+  var newTmpobj = JSON.stringify(userList);
+  localStorage.setItem("user", newTmpobj);
+}
+signupNickname.addEventListener("input", () => {
+  var userList = loadUser();
+  var blank_pattern = /[\s]/g;
+
+  var result = userList.user.some(
+    (num) => num.nickname == signupNickname.value
+  );
+
+  if (result && signupNickname.value.length != 0) {
+    checkNickname.innerHTML = "이미 존재하는 닉네임입니다.";
+    isNickname = false;
+  } else if (
+    signupNickname.value.length == 0 ||
+    blank_pattern.test(signupNickname.value) == true
+  ) {
+    checkNickname.innerHTML =
+      "공백을 제외한 1글자 이상의 닉네임을 설정해주세요";
+    isNickname = false;
+  } else {
+    if (signupNickname.value.length != 0) {
+      checkNickname.innerHTML = "사용 가능한 닉네임입니다.";
+      isNickname = true;
+    }
+  }
+});
+
+signupEmail.addEventListener("input", () => {
+  var userList = loadUser();
+
+  var blank_pattern = /[\s]/g;
+  var emeail_pattern =
+    /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var result = userList.user.some((num) => num.email == signupEmail.value);
+
+  if (emeail_pattern.test(signupEmail.value) == false) {
+    checkEmail.innerHTML = "올바른 이메일을 입력해주세요.";
+    isEmail = false;
+  } else {
+    if (result) {
+      checkEmail.innerHTML = "이미 존재하는 이메일입니다.";
+      isEmail = false;
+    } else {
+      checkEmail.innerHTML = "사용 가능한 이메일입니다.";
+      isEmail = true;
+    }
+  }
+});
+
+signupPw.addEventListener("input", () => {
+  var userList = loadUser();
+
+  var blank_pattern = /[\s]/g;
+  var password_pattern = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/;
+
+  if (password_pattern.test(signupPw.value) == false) {
+    checkPw.innerHTML = "올바른 패스워드를 입력해주세요.";
+    isPw = false;
+  } else {
+    checkPw.innerHTML = "사용 가능한 패스워드입니다.";
+    isPw = true;
+  }
+});
+
+signupBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (isNickname == true && isEmail == true && isPw == true) {
+    alert(`${signupNickname.value}님, 가입을 환영합니다.`);
+    addUser(signupNickname.value, signupEmail.value, signupPw.value);
+
+    signupNickname.value = "";
+    signupEmail.value = "";
+    signupPw.value = "";
+
+    document.querySelector("#signUp").classList.remove("d-block");
+    document.querySelector("#signUp").classList.add("d-none");
+
+    document.querySelector("#press").classList.remove("d-none");
+    document.querySelector("#press").classList.add("d-block");
+  } else {
+    alert("조건에 맞춰 양식을 재작성해주세요");
+  }
+});
+
+const back = document.querySelector(".back");
+back.addEventListener("click", () => {
+  document.querySelector("#signUp").classList.remove("d-block");
+  document.querySelector("#signUp").classList.add("d-none");
+
+  document.querySelector("#press").classList.remove("d-none");
+  document.querySelector("#press").classList.add("d-block");
+
+  initSignup();
+});
+
+function initSignup() {
+  signupNickname.value = "";
+  signupEmail.value = "";
+  signupPw.value = "";
+
+  checkEmail.innerHTML = "";
+  checkPw.innerHTML = "";
+  checkNickname.innerHTML = "";
+}
+
+var backinnerHTML = back.innerHTML;
+back.addEventListener("mouseover", (e) => {
+  e.preventDefault();
+  back.innerHTML = "▶︎" + backinnerHTML;
+});
+
+back.addEventListener("mouseleave", (e) => {
+  e.preventDefault();
+  back.innerHTML = backinnerHTML;
+});

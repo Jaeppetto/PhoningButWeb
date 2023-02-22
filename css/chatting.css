@@ -1,7 +1,8 @@
 @font-face {
   font-family: "retro";
-  src: url("/font/DungGeunMo.otf") format("truetype");
+  src: url("../font/DungGeunMo.otf") format("truetype");
 }
+
 a {
   color: black;
   text-decoration: none;

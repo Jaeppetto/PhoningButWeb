@@ -1,6 +1,6 @@
 @font-face {
   font-family: "retro";
-  src: url("/font/DungGeunMo.otf") format("truetype");
+  src: url("../font/DungGeunMo.otf") format("truetype");
 }
 
 body {
@@ -238,7 +238,7 @@ input {
 
 #logo {
   position: absolute;
-  top: 30%;
+  top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
 

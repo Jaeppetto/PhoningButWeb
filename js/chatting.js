@@ -53,6 +53,11 @@ function initChat(object) {
   localStorage.setItem("chat", newObj);
 }
 
+function initUser(object) {
+  var newObj = JSON.stringify(object);
+  localStorage.setItem("chat", newObj);
+}
+
 function loadChat() {
   // 1. 로컷스토리지에서 JSON 가져온 후 오브젝트로 파싱
   // 2. chatting 파라미터로 접근하여 리턴

@@ -2,11 +2,9 @@
  
 <p align="center">
   <br>
-  <img src="./images/common/logo-sample.jpeg">
+  <img src="./src/header.png">
   <br>
 </p>
-
-목차
 
 ## 프로젝트 소개
 
@@ -22,9 +20,9 @@ GIF Images
 
 ## 기술 스택
 
-| JavaScript | TypeScript |  React   |  Node   |
-| :--------: | :--------: | :------: | :-----: |
-|   ![js]    |   ![ts]    | ![react] | ![node] |
+|     CSS     |    HTML   |  JS   |
+| :--------:  | :--------: | :------: |
+|   ![css]    |   ![html]   | ![js] |
 
 <br>
 
@@ -50,7 +48,6 @@ GIF Images
 
 <!-- Stack Icon Refernces -->
 
-[js]: /images/stack/javascript.svg
-[ts]: /images/stack/typescript.svg
-[react]: /images/stack/react.svg
-[node]: /images/stack/node.svg
+[js]: /readmeSrc/javascript.svg
+[css]: /readmeSrc/css.svg
+[html]: /readmeSrc/html.svg

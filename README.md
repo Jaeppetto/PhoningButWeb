@@ -14,7 +14,7 @@
 
 
 1. 제작한 프로젝트를 직접 확인해보세요<br>
-https://w00ngja.github.io/Phoning-but-WEB/
+https://w00ngja.github.io/PhoningButWeb/
 
 2. 블로그에 방문하여 프로젝트의 디테일을 살펴보세요<br>
 https://w00ngja.tistory.com/46<br>

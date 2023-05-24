@@ -20,7 +20,7 @@ https://w00ngja.github.io/PhoningButWeb/
 https://w00ngja.tistory.com/46<br>
 
 2. 노션에 방문하여 프로젝트 제작 과정을 살펴보세요<br>
-https://wzarchive.notion.site/Phoning-but-web-e174d4fdf8664ddcbf847318e34ded23
+https://wzarchive.notion.site/Phoning-but-web-446f214226c44446a32f690d0f1e5549
 </p>
 
 
